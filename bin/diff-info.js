@@ -1,2 +1,5 @@
-export const info = () => console.log('Hello');
+#!/usr/bin/env node
+
+const info = () => console.log('Hello');
+
 info();

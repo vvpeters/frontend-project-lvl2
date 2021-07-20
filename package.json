@@ -2,7 +2,10 @@
   "name": "@hexlet/code",
   "type": "module",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/vvpeters/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/vvpeters/frontend-project-lvl2/actions)",
+  "bin": {
+    "get-info": "bin/diff-info.js"
+  },
+  "description": "hexlet frontend second project (gendiff)",
   "main": "index.js",
   "dependencies": {
     "commander": "^8.0.0",
