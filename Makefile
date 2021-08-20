@@ -1,7 +1,7 @@
 install: 
 	npm install
 run:
-	node bin/gendiff.js ./src/file1.json ./src/file2.json
+	node bin/gendiff.js ./__tests__/__fixtures__/file1.json ./__tests__/__fixtures__/file2.json
 publish:
 	npm link
 lint:

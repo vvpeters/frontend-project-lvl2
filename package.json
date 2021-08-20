@@ -23,7 +23,8 @@
     "jest-cli": "^27.0.6"
   },
   "scripts": {
-    "test": "npx jest --bail"
+    "test": "npx jest --bail",
+    "test-watch": "npx jest --bail --watch"
   },
   "repository": {
     "type": "git",
