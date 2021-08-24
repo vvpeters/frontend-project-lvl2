@@ -1,20 +1,21 @@
 import _ from 'lodash';
-import { readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
-import yaml from 'js-yaml';
-import * as path from 'path';
+// import { readFileSync } from 'fs';
+// import { fileURLToPath } from 'url';
+// import { dirname, resolve } from 'path';
+import parser from '../parsers.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 
-const readFile = (pathToFile) => JSON.parse(readFileSync(resolve(__dirname, '..', pathToFile), 'utf-8'));
-// const readJsonFile = (pathToFile) => JSON.parse(readFileSync(resolve(__dirname, '..', pathToFile), 'utf-8'));
-// const readYamlFile = (pathToFile) => yaml.load(readFileSync(resolve(__dirname, '..', pathToFile), 'utf-8'));
+// const readFile = (pathToFile) => {
+//   const parsedFile = parser(pathToFile);
+//   const result = parsedFile(readFileSync(resolve(__dirname, '..', pathToFile), 'utf-8'));
+//   return result;
+// };
 
 const genDiff = (pathToFile1, pathToFile2) => {
-  const parsedFile1 = readFile(pathToFile1);
-  const parsedFile2 = readFile(pathToFile2);
+  const parsedFile1 = parser(pathToFile1);
+  const parsedFile2 = parser(pathToFile2);
 
   const unionKeys = _.sortBy(_.union(_.keys(parsedFile1), _.keys(parsedFile2)));
 
