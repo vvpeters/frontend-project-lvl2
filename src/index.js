@@ -1,17 +1,5 @@
 import _ from 'lodash';
-// import { readFileSync } from 'fs';
-// import { fileURLToPath } from 'url';
-// import { dirname, resolve } from 'path';
-import parser from '../parsers.js';
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
-
-// const readFile = (pathToFile) => {
-//   const parsedFile = parser(pathToFile);
-//   const result = parsedFile(readFileSync(resolve(__dirname, '..', pathToFile), 'utf-8'));
-//   return result;
-// };
+import parser from './parsers.js';
 
 const genDiff = (pathToFile1, pathToFile2) => {
   const parsedFile1 = parser(pathToFile1);
