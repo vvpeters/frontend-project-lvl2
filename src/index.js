@@ -2,11 +2,15 @@ import _ from 'lodash';
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
+import yaml from 'js-yaml';
+import * as path from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const readFile = (pathToFile) => JSON.parse(readFileSync(resolve(__dirname, '..', pathToFile), 'utf-8'));
+// const readJsonFile = (pathToFile) => JSON.parse(readFileSync(resolve(__dirname, '..', pathToFile), 'utf-8'));
+// const readYamlFile = (pathToFile) => yaml.load(readFileSync(resolve(__dirname, '..', pathToFile), 'utf-8'));
 
 const genDiff = (pathToFile1, pathToFile2) => {
   const parsedFile1 = readFile(pathToFile1);
