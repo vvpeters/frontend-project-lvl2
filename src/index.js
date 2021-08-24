@@ -5,9 +5,10 @@ const genDiff = (pathToFile1, pathToFile2) => {
   const parsedFile1 = parse(pathToFile1);
   const parsedFile2 = parse(pathToFile2);
 
-  const unionKeys = _.sortBy(_.union(_.keys(parsedFile1), _.keys(parsedFile2)));
+  const unionKeys = _.union(_.keys(parsedFile1), _.keys(parsedFile2));
+  const sortedKeys = _.sortBy(unionKeys);
 
-  const result = unionKeys.reduce((acc, key) => {
+  const result = sortedKeys.reduce((acc, key) => {
     if (!_.has(parsedFile1, key)) {
       return `${acc}\n  + ${key}: ${parsedFile2[key]}`;
     }
