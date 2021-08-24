@@ -9,11 +9,12 @@ const __dirname = dirname(__filename);
 
 const parser = (pathToFile) => {
   const fileExt = path.extname(pathToFile);
-  if (fileExt === '.json' || fileExt === '') {
-    return JSON.parse(readFileSync(resolve(__dirname, '..', pathToFile), 'utf-8'));
-  } if (fileExt === '.yml' || fileExt === '.yaml') {
-    return yaml.load(readFileSync(resolve(__dirname, '..', pathToFile), 'utf-8'));
+  const readedFile = readFileSync(resolve(__dirname, '..', pathToFile), 'utf-8');
+  if (fileExt === '.yml' || fileExt === '.yaml') {
+    return yaml.load(readedFile);
   }
+
+  return JSON.parse(readedFile);
 };
 
 export default parser;
