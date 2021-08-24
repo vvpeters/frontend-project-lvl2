@@ -2,25 +2,26 @@ import { test, expect } from '@jest/globals';
 import { readFileSync } from 'fs';
 import genDiff from '../src/index.js';
 
-const result = readFileSync('__tests__/__fixtures__/result_index.txt', 'utf-8');
+const pathToFixtures = '__tests__/__fixtures__/';
+const result = readFileSync(`${pathToFixtures}result_index.txt`, 'utf-8');
 
-test('diffJsonJson', () => {
-  const pathToFile1 = '__tests__/__fixtures__/file1.json';
-  const pathToFile2 = '__tests__/__fixtures__/file2.json';
-
-  expect(genDiff(pathToFile1, pathToFile2)).toBe(result);
-});
-
-test('diffYamlYaml', () => {
-  const pathToFile1 = '__tests__/__fixtures__/file1.yaml';
-  const pathToFile2 = '__tests__/__fixtures__/file2.yaml';
+test('diff Json and Json', () => {
+  const pathToFile1 = `${pathToFixtures}file1.json`;
+  const pathToFile2 = `${pathToFixtures}file2.json`;
 
   expect(genDiff(pathToFile1, pathToFile2)).toBe(result);
 });
 
-test('diffYamlJson', () => {
-  const pathToFile1 = '__tests__/__fixtures__/file1.yaml';
-  const pathToFile2 = '__tests__/__fixtures__/file2.json';
+test('diff Yaml and Yaml', () => {
+  const pathToFile1 = `${pathToFixtures}file1.yaml`;
+  const pathToFile2 = `${pathToFixtures}file2.yaml`;
+
+  expect(genDiff(pathToFile1, pathToFile2)).toBe(result);
+});
+
+test('diff Yaml and Json', () => {
+  const pathToFile1 = `${pathToFixtures}file1.yaml`;
+  const pathToFile2 = `${pathToFixtures}file2.json`;
 
   expect(genDiff(pathToFile1, pathToFile2)).toBe(result);
 });

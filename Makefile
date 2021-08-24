@@ -2,7 +2,6 @@ install:
 	npm install
 run:
 	node bin/gendiff.js ./__tests__/__fixtures__/file1.json ./__tests__/__fixtures__/file2.json 
-
 publish:
 	npm link
 lint:
